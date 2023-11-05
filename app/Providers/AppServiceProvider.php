@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Cache;
 
@@ -12,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        if ($this->app->environment('local')) {
+            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 
     /**
@@ -23,5 +27,7 @@ class AppServiceProvider extends ServiceProvider
         if (!Cache::get('nova_valid_license_key')) {
             Cache::put('nova_valid_license_key', true, 3600);
         }
+        Model::preventLazyLoading(!$this->app->isProduction());
+        Model::preventSilentlyDiscardingAttributes(!$this->app->isProduction());
     }
 }
