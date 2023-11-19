@@ -100,9 +100,7 @@ class Product extends Resource
                 }),
 
             BelongsTo::make(__('Author'), 'author', Author::class),
-
-            // TODO add relations
-            // BelongsTo::make(__('Publisher'), 'publisher', Publisher::class),
+            BelongsTo::make(__('Publisher'), 'publisher', Publisher::class),
         ];
     }
 
