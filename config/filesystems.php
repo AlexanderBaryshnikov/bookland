@@ -58,8 +58,16 @@ return [
 
         'media' => [
             'driver' => 'local',
-            'root'   => public_path('media'),
-            'url'    => env('APP_URL').'/media',
+            'root' => storage_path('app/public/media'),
+            'url' => env('APP_URL').'/storage/media',
+            'visibility' => 'public',
+        ],
+
+        'products' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/media/products'),
+            'url' => env('APP_URL').'/storage/media/products',
+            'visibility' => 'public',
         ],
 
     ],
