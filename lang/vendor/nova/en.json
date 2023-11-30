@@ -477,5 +477,10 @@
     "Product": "Product",
     "Quantity": "Quantity",
     "Images": "Images",
-    "Image": "Image"
+    "Image": "Image",
+    "Is subcategory": "Is subcategory",
+    "Categories": "Categories",
+    "Category": "Category",
+    "Child resources": "Child resources",
+    "Child resource": "Child resource"
 }

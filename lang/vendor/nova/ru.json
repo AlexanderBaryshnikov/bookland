@@ -464,5 +464,10 @@
     "Product": "Товар",
     "Quantity": "Количество",
     "Images": "Изображения",
-    "Image": "Изображение"
+    "Image": "Изображение",
+    "Is subcategory": "Это подкатегория",
+    "Categories": "Категории",
+    "Category": "Категория",
+    "Child resources": "Дочерние ресурсы",
+    "Child resource": "Дочерний ресурс"
 }
