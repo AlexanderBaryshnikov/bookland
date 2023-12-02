@@ -6,6 +6,7 @@ use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
@@ -100,7 +101,10 @@ class Product extends Resource
                 }),
 
             BelongsTo::make(__('Author'), 'author', Author::class),
+
             BelongsTo::make(__('Publisher'), 'publisher', Publisher::class),
+
+            MorphMany::make(__('Comments'), 'comments', Comment::class),
         ];
     }
 
