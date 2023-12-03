@@ -9,6 +9,7 @@
         "coderello/laravel-nova-lang": "^2.0",
         "cviebrock/eloquent-sluggable": "^10.0",
         "dmitrybubyakin/nova-medialibrary-field": "^4.0",
+        "emilianotisato/nova-tinymce": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/nova": "4.24.4",
