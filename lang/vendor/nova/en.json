@@ -486,5 +486,7 @@
     "Comments": "Comments",
     "Comment": "Comment",
     "Text": "Text",
-    "Published": "Published"
+    "Published": "Published",
+    "Properties": "Properties",
+    "Property": "Property"
 }

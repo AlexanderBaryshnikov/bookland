@@ -71,4 +71,9 @@ class Product extends Model implements HasMedia
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function properties(): BelongsToMany
+    {
+        return $this->belongsToMany(Property::class)->withPivot('value');
+    }
 }
