@@ -3,8 +3,8 @@
 namespace App\Nova;
 
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\Number;
@@ -105,6 +105,16 @@ class Product extends Resource
             BelongsTo::make(__('Publisher'), 'publisher', Publisher::class),
 
             MorphMany::make(__('Comments'), 'comments', Comment::class),
+
+            BelongsToMany::make(__('Properties'), 'properties', Property::class)
+                ->fields(function () {
+                    return [
+                        Text::make(__('Value'), 'value')
+                            ->rules('required', 'max:1000'),
+                    ];
+                }),
+
+            // TODO: сделать читабельный просмотр свойств у товара через глаз
         ];
     }
 
