@@ -17,14 +17,18 @@ return new class extends Migration {
             $table->string('slug', 255);
             $table->text('description')
                 ->nullable();
-            $table->float('price', 10, 2);
+            $table->decimal('price', 10, 2);
             $table->unsignedMediumInteger('quantity');
             $table->foreignId('author_id')
                 ->nullable()
-                ->constrained();
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
             $table->foreignId('publisher_id')
                 ->nullable()
-                ->constrained();
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
             $table->timestamps();
             $table->softDeletes();
 
