@@ -9,5 +9,4 @@ import './../vendor/bootstrap-select/dist/js/bootstrap-select.min';
 import './../vendor/counter/waypoints-min';
 import './../vendor/counter/counterup.min';
 import './../vendor/swiper/swiper-bundle.min';
-import './../vendor/swiper/swiper-bundle.min';
 import './custom';
