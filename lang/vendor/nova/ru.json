@@ -475,5 +475,8 @@
     "Text": "Текст",
     "Published": "Опубликовано",
     "Properties": "Свойства",
-    "Property": "Свойство"
+    "Property": "Свойство",
+    "Title": "Заголовок",
+    "Banners": "Баннеры",
+    "Banner": "Баннер"
 }
