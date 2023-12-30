@@ -1,7 +1,7 @@
 .main-slider{
 	overflow: hidden;
     position: relative;
-	
+
 	.swiper-slide{
 		height: 100%!important;
 		background-repeat: no-repeat;
@@ -24,7 +24,7 @@
 			opacity: 0.6;
 			width: 380px;
 			@include transitionSlow;
-			
+
 			&.swiper-slide-active{
 				opacity: 1;
 				.books-card{
@@ -45,14 +45,10 @@
 			}
 			.dz-content{
 				.dz-meta{
-					ul{
-						li{
-							color:var(--secondary);
-							font-size: 14px;
-							font-weight:400;
-							font-family: var(--font-family-title);
-						}
-					}
+                    color:var(--secondary);
+                    font-size: 14px;
+                    font-weight:400;
+                    font-family: var(--font-family-title);
 				}
 				.book-footer{
 					display: flex;
@@ -207,7 +203,7 @@
 				.text{
 					border-left: 1px solid #3B2F4A;
 					color: var(--secondary);
-					@media only screen and (max-width: 600px) { 
+					@media only screen and (max-width: 600px) {
 						border: 0;
 					}
 
@@ -258,7 +254,7 @@
 			.pattern{
 				display:none;
 			}
-			
+
 			.swiper-content{
 				padding: 0px;
 			}
@@ -283,7 +279,7 @@
 					margin: 15px 0px;
 				}
 			}
-			
+
 		}
 		@media only screen and (max-width: 1024px) {
 			.banner-content{
@@ -535,7 +531,7 @@
 			}
 		}
 	}
-	
+
 }
 .main-swiper .swiper-pagination-five{
 	position: static;
