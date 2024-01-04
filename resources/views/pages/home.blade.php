@@ -1,4 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    @include('partials.banners.main.index')
+    <div class="page-content bg-white">
+        @include('partials.banners.main.index')
+    </div>
 @endsection

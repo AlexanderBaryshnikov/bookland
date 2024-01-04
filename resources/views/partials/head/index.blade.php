@@ -11,13 +11,7 @@
     <title>Bookland | Книжный интернет-магазин: купить книги, новинки, бестселлеры</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    @vite([
-        'resources/icons/fontawesome/css/all.min.css',
-        'resources/vendor/swiper/swiper-bundle.min.css',
-        'resources/vendor/animate/animate.css',
-        'resources/vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
-        'resources/scss/app.scss',
-    ])
+    @vite(['resources/css/app.css'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

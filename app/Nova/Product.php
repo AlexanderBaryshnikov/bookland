@@ -2,9 +2,12 @@
 
 namespace App\Nova;
 
+use Carbon\Carbon;
 use DmitryBubyakin\NovaMedialibraryField\Fields\Medialibrary;
+use Emilianotisato\NovaTinyMCE\NovaTinyMCE;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\Number;
@@ -51,6 +54,9 @@ class Product extends Resource
         return [
             ID::make(),
 
+            Boolean::make(__('Published'), 'published')
+                ->default(0),
+
             Text::make('ISBN', 'isbn')
                 ->rules('required', 'min:13', 'max:25'),
 
@@ -59,17 +65,32 @@ class Product extends Resource
 
             Slug::make(__('Slug'), 'slug'),
 
-            Textarea::make(__('Description'), 'description'),
+            NovaTinyMCE::make(__('Description'), 'description'),
 
             Number::make(__('Price'), 'price')
                 ->step(0.01)
                 ->fillUsing(function ($request, $model, $attribute) {
                     $model->$attribute = $request->price ?: 0;
                 })
-                ->rules('required', 'min:0'),
+                ->rules('required')
+                ->min(0),
+
+            Number::make(__('Old price'), 'old_price')
+                ->step(0.01)
+                ->fillUsing(function ($request, $model, $attribute) {
+                    $model->$attribute = !empty($request->$attribute) ?
+                        ($request->$attribute > $request->price ? $request->$attribute : ++$request->price) : null;
+                }),
+
+            Number::make(__('Discount'), 'discount')
+                ->min(1),
 
             Number::make(__('Quantity'), 'quantity')
                 ->rules('required', 'min:0'),
+
+            Number::make(__('Year'), 'year')
+                ->min(1900)
+                ->max(Carbon::now()->year),
 
             Medialibrary::make(__('Images'), 'products')
                 ->accept('image/*')
@@ -114,6 +135,8 @@ class Product extends Resource
                     ];
                 }),
 
+            BelongsToMany::make(__('Genres'), 'categories', Category::class),
+
             // TODO: сделать читабельный просмотр свойств у товара через глаз
         ];
     }
@@ -138,6 +161,10 @@ class Product extends Resource
                 ->sortable(),
 
             Number::make(__('Quantity'), 'quantity')
+                ->sortable(),
+
+            Boolean::make(__('Published'), 'published')
+                ->default(0)
                 ->sortable(),
         ];
     }

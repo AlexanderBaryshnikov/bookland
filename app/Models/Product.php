@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Vite;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -25,9 +27,13 @@ class Product extends Model implements HasMedia
         'name',
         'description',
         'price',
+        'old_price',
+        'discount',
         'author_id',
         'publisher_id',
         'quantity',
+        'published',
+        'year',
     ];
 
     public function sluggable(): array
@@ -48,8 +54,8 @@ class Product extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb-products')
-            ->width(368)
-            ->height(232);
+            ->width(398)
+            ->height(572);
     }
 
     public function author(): BelongsTo
@@ -75,5 +81,15 @@ class Product extends Model implements HasMedia
     public function properties(): BelongsToMany
     {
         return $this->belongsToMany(Property::class)->withPivot('value');
+    }
+
+    public function scopePublished(Builder $query): void
+    {
+        $query->where('published', 1);
+    }
+
+    public function getImage()
+    {
+        return $this->getFirstMediaUrl('products', 'thumb-products') ?: Vite::image('empty/image_not_available.jpg');
     }
 }

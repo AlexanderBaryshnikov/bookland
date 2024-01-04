@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\FormData;
 use Laravel\Nova\Fields\HasMany;
@@ -56,7 +57,9 @@ class Category extends Resource
                 )
                 ->nullable(),
 
-            HasMany::make(__('Child resources'), 'children', self::class)
+            HasMany::make(__('Child resources'), 'children', self::class),
+
+            BelongsToMany::make(__('Product'), 'products', Product::class),
         ];
     }
 
@@ -82,11 +85,11 @@ class Category extends Resource
 
     public static function label()
     {
-        return __('Categories');
+        return __('Genres');
     }
 
     public static function singularLabel()
     {
-        return __('Category');
+        return __('Genre');
     }
 }
