@@ -2,7 +2,7 @@
 <html lang="ru">
 @include('partials.head.index')
 <body>
-<div class="page-wraper animated">
+<div class="page-wraper">
     @include('partials.header.index')
     @yield('content')
     @include('partials.footer.index')

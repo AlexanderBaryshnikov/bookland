@@ -1,6 +1,6 @@
 .filter-area{
 	border: 1px solid rgba(0, 0, 0, 0.125);
-	border-radius: var(--border-radius-base);	
+	border-radius: var(--border-radius-base);
 	align-items: center;
 	background-color: $white;
 	display:flex;
@@ -41,13 +41,13 @@
 			.filter-day{
 				display:none;
 			}
-		} 
+		}
 	}
 	.category{
 		position:relative;
 		z-index:1;
 		display:flex;
-		
+
 		.filter-category{
 			align-items: center;
 			display: flex;
@@ -65,17 +65,17 @@
 				justify-content: center;
 				line-height: 60px;
 				outline: none !important;
-				padding: 0px 20px 0px 5px;		
+				padding: 0px 20px 0px 5px;
 			    font-family: var(--font-family-title);
-				
+
 			}
-			
+
 		}
 		.form-group{
 			display: flex;
 			align-items: center;
 			padding:0;
-			background:none;				
+			background:none;
 
 			.dropdown{
 				width: 110px !important;
@@ -183,7 +183,7 @@
 
 .dz-shop-card {
 	position: relative;
-	
+
 	// dz-tags
 	.dz-tags{
 		display:flex;
@@ -265,7 +265,7 @@
 			.dz-content{
 				.title{
 					margin-bottom:0;
-				}	
+				}
 				.dz-rating{
 					//display:none;
 				}
@@ -331,7 +331,7 @@
 			@include respond('phone') {
 				padding-top:20px;
 			}
-			
+
 			.dz-header{
 				display:flex;
 				justify-content:space-between;
@@ -438,7 +438,7 @@
 			}
 		}
 	}
-	
+
 	//style-5
 	&.style-5{
 		align-items:center;
@@ -474,6 +474,12 @@
 					color: var(--primary);
 					font-weight: 700;
 				}
+                .current-price {
+                    font-size: 16px;
+                }
+                .fa-rub {
+                    font-size: 12px;
+                }
 				del{
 					font-size: 14px;
 					color: rgb(170, 170, 170);
@@ -497,7 +503,7 @@
 				}
 			}
 		}
-	}	
+	}
 }
 .related-title{
 	margin-bottom: 45px;
@@ -508,7 +514,7 @@
 	@include respond('laptop') {
 		margin-bottom: 55px;
 	}
-} 
+}
 .book-grid-row{
 	//style-4
 	&.style-4{
@@ -523,7 +529,7 @@
 					border-radius:10px;
 				}
 				@include respond('tab-land'){
-					min-width: 250px; 
+					min-width: 250px;
 				}
 			}
 			.dz-content{
@@ -600,14 +606,14 @@
 										@include respond ('phone'){
 											display:none;
 										}
-									} 
+									}
 								}
 								span{
 									display:block;
 									color:#AAAAAA;
 									font-size:14px;
 									font-weight: 500;
-								}		
+								}
 							}
 						}
 						.right-info{
@@ -636,22 +642,27 @@
 						@include respond('tab-port'){
 							display:block;
 						}
-						.price{
+						.price {
 							display:flex;
 							align-items: baseline;
-							h5{
+							&__current-value {
 								font-size: 30px;
 								color:var(--primary);
+                                font-family: var(--font-family-title);
+                                font-weight: 600;
+                                line-height: 1.4;
 							}
-							p{
+							&__old-value {
 								font-weight: 500;
 								font-size: 18px;
 								text-decoration: line-through;
 								color: #636363;
 								font-family:var(--font-family-title);
 								margin-bottom:0;
-								
 							}
+                            .fa-rub {
+                                font-size: 20px;
+                            }
 							.badge{
 								font-size: 16px;
 								font-weight: 700;
@@ -704,9 +715,9 @@
 		overflow:scroll;
 		&.show{
 			left:0;
-		
+
 		}
-	} 
+	}
 }
 .dz-widget_services{
 	.form-check{
@@ -744,7 +755,7 @@
 				width:100%;
 				margin-bottom:0;
 			}
-		} 
+		}
 	}
 }
 .tabs-site-button {
@@ -767,7 +778,7 @@
 			}
 		}
 	}
-	
+
 }
 .tabs-site-button .nav-tabs a:after {
     content: "";
@@ -807,15 +818,15 @@
 		margin-bottom: 2.5rem;
 		display:flex;
 		align-items:center;
-		
+
 		li{
 			flex:0 0 25%;
 			max-width:25%;
-			
+
 			.nav-link{
 				display:flex;
 				align-items: center;
-				padding: 0;				
+				padding: 0;
 				span{
 					width: 48px;
 					min-width: 48px;
@@ -867,7 +878,7 @@
 				}
 			}
 		}
-	}	
+	}
 }
 .toolbar{
 	.btn{
@@ -875,7 +886,7 @@
 		background-color: var(--primary)!important;
 		border: 1px solid var(--primary)!important;
 	}
-} 
+}
 
 .shop-account{
 	.account-detail{
@@ -915,7 +926,7 @@
 				border-top: 1px solid  #eee;
 				color: #232323;
 				border-left: 3px solid rgba(0,0,0,0);
-				
+
 				&.active{
 					background: #eaa4511a;
 					border-left-color: var(--primary);
@@ -937,12 +948,12 @@
 	padding: 0 20px 30px;
 	border-radius: 4px;
 	background-color: var(--white);
-	
+
 	.shop-bx-title{
 		border-bottom: 1px solid var(--primary);
 		padding: 10px 0;
 		font-size: 22px;
 		margin-bottom: 30px;
 	}
-	
+
 }

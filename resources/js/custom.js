@@ -502,21 +502,20 @@ var Bookland = function(){
         }
     }
 
-    /* handle Bootstrap Touch Spin ============ */
     var handleBootstrapTouchSpin = function(){
         if($("input[name='demo_vertical2']").length > 0 ) {
-            jQuery("input[name='demo_vertical2']").TouchSpin({
+            $("input[name='demo_vertical2']").TouchSpin({
                 verticalbuttons: true,
                 verticalupclass: 'ti-plus',
                 verticaldownclass: 'ti-minus'
             });
         }
         if($(".quantity-input").length > 0 ) {
-            jQuery(".quantity-input").TouchSpin({
+            $(".quantity-input").TouchSpin({
                 verticalbuttons: true,
                 verticalupclass: 'ti-plus',
                 verticaldownclass: 'ti-minus'
-            });
+            })
         }
     }
 
