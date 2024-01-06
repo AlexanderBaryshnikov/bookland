@@ -581,6 +581,21 @@ var Bookland = function(){
         jQuery('body').append(support);
     }
 
+    var submitFormSent = function() {
+        window.addEventListener('livewireSubscribeFormSent', function () {
+            $('.js_message-notification').removeClass('d-none');
+            window.setTimeout(fadeMassage, 3000);
+        });
+    }
+
+    var fadeMassage = function () {
+        $('.js_message-notification').animate({
+            opacity: 0,
+        }, 2000, function() {
+            $('.js_message-notification').addClass('d-none').css('opacity', '1')
+        });
+    }
+
     /* Function ============ */
     return {
         init:function(){
@@ -611,6 +626,7 @@ var Bookland = function(){
             handleFinalCountDown();
             cartButton();
             handleSupport();
+            submitFormSent();
         },
 
         load:function(){

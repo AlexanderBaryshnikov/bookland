@@ -21,3 +21,5 @@
         </div>
     </div>
 </section>
+@include('partials.forms.subscribe.index')
+

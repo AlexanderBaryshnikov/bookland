@@ -606,6 +606,8 @@
 .newsletter-wrapper{
 	position:relative;
 	z-index:1;
+    background-image: url('../images/background/bg_newsletter.jpg');
+    background-size: cover;
 	&:after{
 		content:"";
 		position:absolute;
